@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<title>Metricks</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-green.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="Metricks-js.js"></script>
+<body>
+
+
+
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+
+  <div class="w3-center">
+
+    <h1>METRICKS</h1>
+
+  </div>
+
+</header>
+
+<!-- Table -->
+<div class="w3-container">
+    <div class="w3-center">
+        <p w3-class="w3-large">Metricks is a free reaction metric calculator for synthetic chemical reactions. Currently, it can calculate Process Mass Intensity (PMI), E-Factor, Reaction Mass Efficiency (RME), and Effective Mass Yield (EMY) values from the same set of data.</p> 
+        <h2>Inputs</h2>
+        <p w3-class="w3-large">Input the names and masses of your reagents and product. Please make sure that you are using the same mass units for all of your reagents and your product. For accurate Reaction Mass Efficiency (RME) and Effective Mass Yield (EMY) calculations, please mark whether the reagent is a reactant (involved in the equation A + B + C -> D/is consumed), and/or whether it is benign.</p>
+        <p w3-class="w3-large">If either your RME or EMY values are displayed as "Infinity %", please check that you have ticked the appropriate Reactant or Benign tickboxes. If they are still displaying as infinite, then congratulations! Your reactions are very efficient and/or effectively yielding!</p>
+    </div>
+    <div class="w3-responsive w3-card-4">
+        <table class="w3-table w3-striped w3-bordered" id="reagentsTable">
+                <thead>
+                    <tr class="w3-theme">
+                        <th>Reagent Name</th>
+                        <th>Reagent Mass</th>
+                        <th colspan="2">Additional Information</th>
+                    </tr>
+                </thead>
+            <tbody>
+                <tr>
+                    <td><input class="reagentName"></input></td>
+                    <td><input class="reagentMass"></input></td>
+                    <td><input type="checkbox" class="reactant"> Reactant</input></td>
+                    <td><input type="checkbox" class="benign"> Benign</input></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <br>
+        <button class="w3-button w3-green" onclick="addReagent()">Add reagent</button>
+        <button class="w3-button w3-green" onclick="removeReagent()">Remove reagent</button>
+    </div>
+    <br>
+    <div class="w3-responsive w3-card-4 w3-border-top">
+        <table class="w3-table w3-striped w3-bordered" id="productTable">
+            <thead>
+                <tr class="w3-theme">
+                    <th>Product Name</th>
+                    <th>Product Mass</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="productName"></input></td>
+                    <td><input class="productMass" id="productMass"></input></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <br>  
+        <button class="w3-button w3-green" onclick="doCalculations()">Calculate</button>
+    </div>
+    <div class = "w3-container w3-center" style="display:none" id="results">
+            <h2>Results</h2>
+            <h4>Process Mass Intensity (PMI)</h4>
+            <div id="processMassIntensity"></div>
+            <h4>E Factor</h4>
+            <div id="eFactor"></div>
+            <h4>Reaction Mass Efficiency (RME)</h4>
+            <div id="reactionMassEfficiency"></div>
+            <h4>Effective Mass Yield (EMY)</h4>
+            <div id="effectiveMassYield"></div>
+    </div>
+    
+</div>
+
+<!-- Footer -->
+<br>
+<footer class="w3-container w3-theme w3-padding" id="myFooter">
+
+    <div class="w3-left">
+    
+        <div>
+            <h4>Process Mass Intensity (PMI)</h4>
+            C. Jiminez-Gonzalez, C. S. Ponder, Q. B. Broxterman, J. B. Manley, "Using the Right Green Yardstick: Why Process Mass Intensity Is Used in the Pharmaceutical Industry To Drive More Sustainable Processes", <i>Org. Process Res. Dev.</i>, 2011, <b>15</b>, 912-917 - DOI: <a href="https://dx.doi.org/10.1021/op200097d">10.1021/op200097d</a>
+        </div>
+        <br />
+        <div>
+            <h4>E Factor</h4>
+            R. A. Sheldon, "The E Factor: Fifteen years on", <i>Green Chem.</i>, 2017, <b>9</b>, 1273-1283 - DOI: <a href="https://dx.doi.org/10.1039/B713736M">10.1039/B713736M</a>
+        </div>
+        <br />
+        <div>
+            <h4>Reaction Mass Efficiency (RME)</h4>
+            A. D. Curzons, D. J. C. Constable, D. N. Mortimer, V. L. Cunningham, "So you think your process is green, how do you know?—Using principles of sustainability to determine what is green–a corporate perspective", <i>Green Chem.</i>, 2001, <b>3</b>, 1-6 - DOI: <a href="https://dx.doi.org/10.1039/B007871I">10.1039/B007871I</a>
+        </div>
+        <br />
+        <div>
+            <h4>Effective Mass Yield (EMY)</h4>
+            T. Hudlicky, D. A. Frey, L. Koroniak, C. D. Claeboe, L. E. Brammer Jr., "Toward a ‘reagent-free’ synthesis", <i>Green Chem.</i>, 1999, <b>1</b>, 57-59 - DOI: <a href="https://dx.doi.org/10.1039/A901397K">10.1039/A901397K</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
