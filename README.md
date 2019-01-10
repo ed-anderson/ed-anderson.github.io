@@ -14,8 +14,8 @@ This website uses Javascript to pull data from inputs held in a table, and perfo
 
 ## Built With
 
-[Visual Studio Code](https://code.visualstudio.com/) - for code editing
-[W3 CSS](https://www.w3schools.com/w3css/w3css_templates.asp) - for style template
+* [Visual Studio Code](https://code.visualstudio.com/) - for code editing
+* [W3 CSS](https://www.w3schools.com/w3css/w3css_templates.asp) - for style template
 
 ## Authors
 
